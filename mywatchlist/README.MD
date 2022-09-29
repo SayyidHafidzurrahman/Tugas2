@@ -1,5 +1,5 @@
 # My Watchlist
-[Deployment Link for Assignment 3](http://tugas2yudi.herokuapp.com/mywatchlist/)
+[Deployment Link for Assignment 3](http://tugassayyid.herokuapp.com/mywatchlist/)
 
 # Perbedaan JSON, XML, dan HTML
 * HTML (Hypertext Markup Language) merupakan sebuah sistem yang sudah distandarisasi yang digunakan untuk membuat struktur sebuah laman web dan isinya.
