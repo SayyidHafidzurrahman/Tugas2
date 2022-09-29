@@ -1,0 +1,112 @@
+[
+    {
+        "model": "mywatchlist.mywatchlistitem",
+        "pk": 1,
+        "fields": {
+            "watched_movie": true,
+            "movie_name": "The Batman",
+            "movie_rating": "9",
+            "release_date": "2022-03-02",
+            "movie_review": "Masterpiece by matt reeves, bagus dari segi writing, movie tone, dll."
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlistitem",
+        "pk": 2,
+        "fields": {
+            "watched_movie": false,
+            "movie_name": "Big Mouth",
+            "movie_rating": "8",
+            "release_date": "2022-07-29",
+            "movie_review": "Belum selesai nontonnya, tapi sejauh ini menurutku bagus aja sih"
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlistitem",
+        "pk": 3,
+        "fields": {
+            "watched_movie": false,
+            "movie_name": "Dr.Strange Multiverse of Madness",
+            "movie_rating": "6",
+            "release_date": "2022-05-05",
+            "movie_review": "Belum ditonton, tapi gak sesuai ekspektasi, udah tau karena kespoiler brutal"
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlistitem",
+        "pk": 4,
+        "fields": {
+            "watched_movie": true,
+            "movie_name": "Tenet",
+            "movie_rating": "7",
+            "release_date": "2021-02-10",
+            "movie_review": "Sebenarnya dari segi produksi film ini bagus, namun menurut saya alur ceritanya sangat membingungkan"
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlistitem",
+        "pk": 5,
+        "fields": {
+            "watched_movie": true,
+            "movie_name": "Dragon Ball Super : Super Hero",
+            "movie_rating": "9",
+            "release_date": "2022-08-26",
+            "movie_review": "Best dragon ball movie i've ever watch. Orang yang gak ngikutin db pun bisa nonton ini tanpa harus fomo"
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlistitem",
+        "pk": 6,
+        "fields": {
+            "watched_movie": true,
+            "movie_name": "Mencuri Raden Saleh",
+            "movie_rating": "9",
+            "release_date": "2022-08-25",
+            "movie_review": "Best Indonesian Movie i've ever watch"
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlistitem",
+        "pk": 7,
+        "fields": {
+            "watched_movie": true,
+            "movie_name": "Death On The Nile",
+            "movie_rating": "8",
+            "release_date": "2022-02-09",
+            "movie_review": "Much Better than the first one, both good tho"
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlistitem",
+        "pk": 8,
+        "fields": {
+            "watched_movie": false,
+            "movie_name": "knives out 2",
+            "movie_rating": "8",
+            "release_date": "2022-12-23",
+            "movie_review": "Belum rilis, but i hope its better than the first one"
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlistitem",
+        "pk": 9,
+        "fields": {
+            "watched_movie": false,
+            "movie_name": "Black Panther : Wakanda Forever",
+            "movie_rating": "7",
+            "release_date": "2022-11-11",
+            "movie_review": "Belum rilis, but i hope it's good"
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlistitem",
+        "pk": 10,
+        "fields": {
+            "watched_movie": true,
+            "movie_name": "She-Hulk : Attorney at Law",
+            "movie_rating": "6",
+            "release_date": "2022-08-18",
+            "movie_review": "Sejauh ini mengecewakan, cgi kurang baik, alur cerita tidak menarik, tidak comic accurate, dll."
+        }
+    }
+]

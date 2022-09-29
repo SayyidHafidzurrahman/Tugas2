@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% load static %}
+<!-- CSS CUSTOM -->
+<link rel="stylesheet" href="{% static 'main.css' %}">
+
+{% block content %}
+
+ <h1>Tugas 3 PBP</h1>
+
+ <h5>Name: </h5>
+ <p>{{nama}}</p>
+
+ <h5>Student ID: </h5>
+ <p>{{npm}}</p>
+
+
+ <div class="main-container">
+   <div class="inside-border">
+      <h2>Here are My Works for Assignment 3</h2>
+      <div class="works">
+         <h1 class="link">Hit the Buttons :D</h1>
+         <button onclick="location.href='/mywatchlist/html'">HTML</button>
+         <button onclick="location.href='/mywatchlist/xml'">XML</button>
+         <button onclick="location.href='/mywatchlist/json'">JSON</button>
+      </div>
+   </div>
+ </div>
+ <div class="result">
+   <p class="final"> {{result}}</p>
+   <p class="result-description">Kamu menonton {{watched}} film dan belum menonton {{unwatched}} film dari list kamu</p>
+ </div>
+
+
+
+{% endblock content %}
