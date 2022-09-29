@@ -1,0 +1,24 @@
+# My ToDo List
+[Deployment Link for Assignment 4](http://tugassayyid.herokuapp.com/todolist/)
+* Before you can access my todolist maker, You have to create an account first!
+
+# Apa kegunaan {% csrf_token %} pada elemen <form>? Apa yang terjadi apabila tidak ada potongan kode tersebut pada elemen <form>?
+Kegunaan dari csrf token pada elemen form adalah untuk mencegah CSRF attacks, dengan cara menginvestigasi token yang harusnya memiliki karakteristik yang unik. Ketika sebuah end-user ingin melakukan method post atau get, karena setiap token unik, maka tidak akan ada user_session yang sama, sehingga form tersebut akan merespons OK jika form disubmit atau diakses dengan user_session yang tepat. 
+
+Jika csrf token tidak ada di dalam elemen form, CRSF attacker dapat membuat valid request ke backend server, sehingga mereka bisa mengakses route link sensitif yang seharusnya tidak bisa diakses oleh orang lain selain user yang bersangkutan. Sehingga attacker bisa mengutak atik akun user lain sesuka mereka, sehingga dapat menyebabkan masalah yang cukup fatal.
+
+# Apakah kita dapat membuat elemen <form> secara manual (tanpa menggunakan generator seperti {{ form.as_table }})? Jelaskan secara gambaran besar bagaimana cara membuat <form> secara manual.
+Sebenarnya hal tersebut mungkin saja, namun caranya lebih rumit. Karena tidak menggunakan `{{form.as_table}}`, akan ada beberapa variabel ketika program di-POST tidak masuk ke database, dan disinilah kita membuat form secara manual. Pertama buat lah awalan menggunakan metode POST, jangan lupa cantumkan crsf token. Setelah itu buat tag table yang berisikan tag tr, yang berisikan data type dan data name yang ingin dimasukkan ke dalam form. Nantinya, setelah form disubmit, hasilnya akan dikembalikan melalui fungsi yang memanggil form. Untuk mengakses input yang terlah dimasukkan, bisa cantumkan command `request.POST.get(nama yang dibuat pada table)`.
+
+# Jelaskan proses alur data dari submisi yang dilakukan oleh pengguna melalui HTML form, penyimpanan data pada database, hingga munculnya data yang telah disimpan pada template HTML.
+Setelah user melakukan submisi dengan  menekan tombol submit, data yang diinput bisa diakses dengan command `request.POST.get(name ketika membuat input)`. Untuk melakukan penyimpanan data pada database dari input yang sudah didapat, bisa menggunakan command `"Models".objects.create(name = data input)` dengan nama sesuai yang sudah dibuat di `todolist/models.py`. Setelah data tersimpan di database django, untuk mengakses dapat menggunakan `"Models".objects.filter(user=request.user)`, dimana filter digunakan agar sesuai dengan user yang tepat. Setelah itu data yang sudah diakses dapat disimpan pada variabel context agar bisa di render ke html. Setelah direturn render dengan target html. object yang sudah difilter tadi bisa diloop dengan for each. Selanjutnya, dalam loop, cantumkan objek yang ingin ditampilkan dengan mengakses atributnya.
+
+# Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas.
+1. Menjalankan `python manage.py startapp todolist` pada cmd setelah mengatur direktori ke folder root.
+2. Menambahkan `path('todolist/', include('todolist.urls')),` pada project_django/urls.py untuk merouting ke fungsi show_todolist yang ada di `todolist/views.py`.
+3. Membuat class di `todolist/models.py` dan membuat field sesuai yang dibutuhkan.
+4. Membuat fungsi login, logout, register dan membuat restriksi agar user harus login dahulu dengan menambahkan `@login_required(login_url='/todolist/login/')` diatas fungsi show_todolist yang merupakan fungsi utama dari project.
+5. Membuat file html (login.html, create.html, logout.html, todolist.html) yang dihubungkan dengan fungsi-fungsi pada todolist/views.py lalu disesuaikan agar bisa menampilkan variable dengan mengakses parameter yang ada di context (`{{username}}`) dan membuat beberapa button yang memiliki logical command untuk login, logout, register, tambah task baru, dan membuat tabel untuk menampilkan data-data yang diambil dari database.
+6. Membuat routing supaya ketika user menekan tombol tambah task, user akan diarahkan ke halaman  `todolist/create-task` dimana terdapat form yang meminta user untuk mengisi kolom task dan description. Setelah selesai mengisi, dengan menekan tombol submit data akan dikirim ke fungsi create di views.py lalu disimpan ke database.
+7. Menghubungkan link todolist/register, login, create-task, delete, change, dan lain-lain dengan routing yang benar supaya program dapat berjalan sesuai fungsinya.
+8. Melakukan Deploy ke heroku lalu membuat 2 user dengan masing-masing 3 dummy list to do.
