@@ -1,0 +1,44 @@
+.link{
+    font-size: large;
+}
+
+.links{
+    font-size: small;
+    display: flex;
+    align-items: center;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    align-items: center;
+    justify-content: center;
+}
+
+.works {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    justify-content: center;
+}
+
+button {
+    border-radius: 5px;
+    border-width: 0px;
+    padding: 8px;
+    background-color:lightblue;
+    cursor: pointer;
+}
+
+.result{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.final {
+    font-size: large;
+    font-family: Verdana;
+}
