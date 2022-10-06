@@ -2,37 +2,51 @@
 <title>Login</title>
 {% endblock meta %} {% block content %}
 
-<div class = "login">
+    <ul class = "nav navbar-expand" style = "background-color: purple; color: white; box-shadow: 0 6px 10px rgba(0, 0, 0, .08), 0 0 6px rgba(0, 0, 0, .05);">
+        <li class = "nav-item mt-1 mb-1" style = "margin: 20px;">
+            <h1>To Do List - Login</h1>
+        </li>
+    </ul>
 
-    <h1>Login</h1>
+    <div class="container d-flex justify-content-center">
+        <div class="card mb-3 w-75 mt-4" style="border-radius: 20px; overflow: hidden">
+            <div class="row g-0">
+                <div class="col-md-6">
+                    {% load static %}
+                    <img src="{% static 'images/gigachad.png' %}" class="img-fluid rounded-start" style="object-fit: cover"="...">
+                </div>
+                <div class="col-md-6">
+                    <div class = "login">
 
-    <form method="POST" action="">
-        {% csrf_token %}
-        <table>
-            <tr>
-                <td>Username: </td>
-                <td><input 
-                    type="text" 
-                    name="username" 
-                    placeholder="Username" 
-                    class="form-control"></td>
-            </tr>
-                    
-            <tr>
-                <td>Password: </td>
-                <td><input 
-                    type="password" 
-                    name="password" 
-                    placeholder="Password" 
-                    class="form-control"></td>
-            </tr>
+                        <h1>Login</h1>
 
-            <tr>
-                <td></td>
-                <td><input class="btn btn-primary login_btn" type="submit" value="Login"></td>
-            </tr>
-        </table>
-    </form>
+                        <form method="POST" action="">
+                            {% csrf_token %}
+                            <div class="mb-3 input-group-x">
+                                <label for="username" class="form-label">Username </label>
+                                <input 
+                                    class = "form-control"
+                                    type="text" 
+                                    name="username" 
+                                    placeholder="Username" 
+                                    class="form-control">
+                            </div>      
+                            <div class="mb-3 input-group-x">
+                                <label for="password" class="form-label">Password </label>
+                                <input 
+                                    class="form-control"
+                                    type="password" 
+                                    name="password" 
+                                    placeholder="Password" 
+                                    class="form-control">
+                            </div>
+                            <button class="btn btn-primary mt-2" type="submit">Login</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     {% if messages %}
         <ul>

@@ -1,40 +1,43 @@
-<div>
-    <div class="header">
-        <p>Hello {{username}}</p>
+{% extends "base.html" %}
+
+{% block content %}
+
+
+  <ul class = "nav navbar-expand" style = "background-color: purple; color: white; box-shadow: 0 6px 10px rgba(0, 0, 0, .08), 0 0 6px rgba(0, 0, 0, .05);">
+    <li class = "nav-item mt-1 mb-1" style = "margin: 20px;">
+        <h1>{{username}} To Do List</h1>
+    </li>
+
+    <li class = "nav-item" style = "margin-top: 13px; margin-bottom: 13px;">
+        <button class = "btn login_btn" style = "background-color: lavender;" ><a style = "color: black; text-decoration: none;" href = "{% url 'todolist:create-task' %}">Create New Task</a></button>
+    </li>
+    
+    <li class = "nav-item" style = "margin: 20px; margin-top: 13px; margin-bottom: 13px;">
+        <button class = "btn login_btn" style = "background-color: lavender;" ><a style = "color: black; text-decoration: none;" href = "{% url 'todolist:logout' %}">Logout</a></button>
+    </li>
+  </ul>
+
+  {% comment %} Add the data below this line {% endcomment %}
+  {% for todo in list_todo %}
+  <div class = "jumbotron card mt-3 rounded-5" style="background-color: lavender; width: 250px;">
+    <div class = "card-body">
+      <h5 class = "card-title">{{todo.title}}</h5>
+      <p class="card-text">{{todo.description}}</p>
+      <p style = "text-align: right;">{{todo.date}}</p>
+      <p style = "text-align: right;">
+        {% if todo.status %}
+        Finished
+        {% else %}
+        Not Yet
+        {% endif%}
+      </p>
+      <p style = "text-align: right;">
+        <button class = "btn login_btn" style = "background-color: cyan;" ><a style = "color: black; text-decoration: none;" href = "{% url 'todolist:delete-task' todo.id %}">Delete</a></button>
+        <button class = "btn login_btn" style = "background-color: cyan;" ><a style = "color: black; text-decoration: none;" href = "{% url 'todolist:change-task' todo.id %}">Change Status</a></button>
+      </p>
     </div>
+  </div>
+  {% endfor %}
 
-    <button onclick="location.href='/todolist/create-task'">Create New Task</button>
-
-    <button><a href="{% url 'todolist:logout' %}">Logout</a></button>
-
-
-    <table border="1">
-        <tr>
-          <th>Date</th>
-          <th>Task</th>
-          <th>Description</th>
-          <th>Status</th>
-          <th>Other Option</th>
-          <th></th>
-        </tr>
-        {% comment %} Add the data below this line {% endcomment %}
-        {% for todo in list_todo %}
-        <tr>
-            <th>{{todo.date}}</th>
-            <th>{{todo.title}}</th>
-            <th>{{todo.description}}</th>
-            <th>
-              {% if todo.status %}
-              Finished
-              {% else %}
-              Not Yet
-              {% endif%}
-            </th>
-            <th>
-              <button><a href="{% url 'todolist:delete-task' todo.id %}" title="">Delete</a></button>
-              <button><a href="{% url 'todolist:change-task' todo.id %}" title="">Change Status</a></button>
-            </th>
-        </tr>
-        {% endfor %}
-      </table>
-</div>
+  <br>
+{% endblock content %}

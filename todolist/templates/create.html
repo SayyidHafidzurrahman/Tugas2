@@ -6,13 +6,17 @@
 
 {% block content %}
 
-<div class = "create">
+    <ul class = "nav navbar-expand" style = "background-color: purple; color: white; box-shadow: 0 6px 10px rgba(0, 0, 0, .08), 0 0 6px rgba(0, 0, 0, .05);">
+        <li class = "nav-item mt-1 mb-1" style = "margin: 20px;">
+            <h1>Create ToDoList - New Task</h1>
+        </li>
+    </ul>
 
-    <h1>Create Todo List</h1>
-
+<div class = "create-task containers-fluid text-center mt-5"></div>
     <form method="POST" action="">
         {% csrf_token %}
-        <table>
+        <table  class = "jumbotron table table-hover table-borderless rounded-4" style = "background-color: lavender; max-width: 330px; box-shadow: 0 6px 10px rgba(0, 0, 0, .08), 0 0 6px rgba(0, 0, 0, .05);">
+                <tr>
             <tr>
                 <td>Create Your Task</td>
                 <td><input 
@@ -29,13 +33,13 @@
                     name="description" 
                     placeholder="Description" 
                     class="form-control"></td>
+                </tr>
+            <tr>
+                <td></td>    
+                <td></td><input type="submit" name="submit" value="Create!"/></td>
             </tr>
         </table>
-        
-        <input type="submit" name="submit" value="Create!"/>
     </form>
-
-
 </div>
 
 {% endblock content %}
