@@ -32,7 +32,8 @@ ALLOWED_HOSTS = ["*"]
 
 # Application definition
 
-CSRF_TRUSTED_ORIGINS = [‘https://web-production-ba80.up.railway.app/’]
+if not DEBUG:
+CSRF_TRUSTED_ORIGINS = [‘https://web-production-ba80.up.railway.app’]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
